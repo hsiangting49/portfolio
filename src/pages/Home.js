@@ -12,24 +12,24 @@ const Home = () => {
 
     for (let i = 0; i < count; i++) {
       let attempts = 0;
-      let position;
+      let newPosition;
       
       do {
-        position = {
+        newPosition = {
           x: Math.random() * 100, // 0-100%
           y: Math.random() * 100, // 0-100%
         };
         attempts++;
       } while (
         attempts < maxAttempts &&
-        positions.some(pos => {
-          const dx = (position.x - pos.x) * window.innerWidth / 100;
-          const dy = (position.y - pos.y) * window.innerHeight / 100;
+        positions.some(existingPos => {
+          const dx = (newPosition.x - existingPos.x) * window.innerWidth / 100;
+          const dy = (newPosition.y - existingPos.y) * window.innerHeight / 100;
           return Math.sqrt(dx * dx + dy * dy) < minDistance;
         })
       );
 
-      positions.push(position);
+      positions.push(newPosition);
     }
 
     return positions;
@@ -66,7 +66,7 @@ const Home = () => {
                 position: 'absolute',
                 width: `${size}px`,
                 height: `${size}px`,
-                background: 'rgba(230, 190, 190, 0.67)',
+                background: 'rgb(230, 179, 179)',
                 borderRadius: '50%',
                 top: `${pos.y}%`,
                 left: `${pos.x}%`,
