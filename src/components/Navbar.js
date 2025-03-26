@@ -1,26 +1,66 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          我的作品集
+    <AppBar position="fixed">
+      <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 2, sm: 4 } }}>
+        <Typography
+          component={RouterLink}
+          to="/"
+          sx={{
+            color: 'rgb(130, 113, 21)',
+            textDecoration: 'none',
+            fontSize: '1.5rem',
+            '&:hover': {
+              color: 'rgb(201, 191, 141)',
+            },
+          }}
+        >
+          Portfolio
         </Typography>
-        <Box>
-          <Button color="inherit" component={RouterLink} to="/">
-            首頁
+        <Box sx={{ display: 'flex', gap: 2 }}>
+          <Button
+            component={RouterLink}
+            to="/"
+            sx={{
+              color: location.pathname === '/' ? 'rgb(130, 113, 21)' : 'rgb(176, 171, 141)',
+              '&:hover': {
+                backgroundColor: 'rgba(165, 157, 110, 0.21)',
+                color: 'rgb(130, 113, 21)',
+              },
+            }}
+          >
+            Home
           </Button>
-          <Button color="inherit" component={RouterLink} to="/about">
-            關於我
+          <Button
+            component={RouterLink}
+            to="/projects"
+            sx={{
+              color: location.pathname === '/projects' ? 'rgb(130, 113, 21)' : 'rgb(176, 171, 141)',
+              '&:hover': {
+                backgroundColor: 'rgba(165, 157, 110, 0.21)',
+                color: 'rgb(130, 113, 21)',
+              },
+            }}
+          >
+            Projects
           </Button>
-          <Button color="inherit" component={RouterLink} to="/projects">
-            作品集
-          </Button>
-          <Button color="inherit" component={RouterLink} to="/contact">
-            聯絡我
+          <Button
+            component={RouterLink}
+            to="/contact"
+            sx={{
+              color: location.pathname === '/contact' ? 'rgb(130, 113, 21)' : 'rgb(176, 171, 141)',
+              '&:hover': {
+                backgroundColor: 'rgba(165, 157, 110, 0.21)',
+                color: 'rgb(130, 113, 21)',
+              },
+            }}
+          >
+            Contact
           </Button>
         </Box>
       </Toolbar>

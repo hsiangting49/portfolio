@@ -4,18 +4,38 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import Box from '@mui/material/Box';
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main: '#90caf9',
+      main: 'rgb(201, 191, 141)',
     },
     secondary: {
-      main: '#f48fb1',
+      main: 'rgb(95, 82, 6)',
+    },
+    background: {
+      default: 'rgb(28, 27, 26)',
+      paper: 'rgb(249, 234, 218)',
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgba(249, 234, 218, 0.9)',
+          backdropFilter: 'blur(8px)',
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1200,
+        },
+      },
     },
   },
 });
@@ -25,13 +45,18 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Box sx={{ 
+          minHeight: '100vh', 
+          backgroundColor: theme.palette.background.default,
+          paddingTop: '64px', // 為固定導航欄留出空間
+        }}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Box>
       </Router>
     </ThemeProvider>
   );

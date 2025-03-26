@@ -3,6 +3,7 @@ import { Container, Typography, Box, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import FloatingBackground from '../components/FloatingBackground';
+import profileImage from '../assets/images/profile.JPG';
 
 const Home = () => {
   return (
@@ -11,11 +12,10 @@ const Home = () => {
         minHeight: '100vh',
         position: 'relative',
         overflow: 'hidden',
-        background: 'linear-gradient(45deg,rgb(223, 211, 187) 0%, rgb(249, 234, 218) 100%)',
+        background: 'rgb(28, 27, 26)',
       }}
     >
       <FloatingBackground />
-
       <Container maxWidth="md">
         <Box
           sx={{
@@ -34,53 +34,73 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Typography 
-              variant="h2" 
-              component="h1" 
-              gutterBottom
+            <Box
               sx={{
-                fontWeight: 'bold',
-                color: '#1f2937',
-                mb: 2,
+                width: 250,
+                height: 250,
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '4px solid white',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.32)',
+                mb: 4,
+                mx: 'auto',
+                position: 'relative',
               }}
             >
-              Hello, this is Alicia
-            </Typography>
+              <img
+                src={profileImage}
+                alt="個人照片"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
+            </Box>
             <Typography 
               variant="h3" 
-              component="h2" 
-              gutterBottom
+              component="h1" 
+              gutterBottom 
+              align="center"
               sx={{
-                color: '#4b5563',
-                mb: 4,
+                color: 'rgb(249, 234, 218)',
+                fontWeight: 'bold',
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
               }}
             >
-              Welcome to my website!
+              Welcome to my website
             </Typography>
             <Typography 
               variant="h5" 
-              color="text.secondary" 
-              paragraph
-              sx={{ mb: 4, color: '#6b7280' }}
-            >
-              I am a passionate developer focused on creating elegant web applications
-            </Typography>
-            <Button
-              variant="contained"
-              size="large"
-              component={RouterLink}
-              to="/projects"
-              sx={{ 
-                mt: 4,
-                backgroundColor: 'rgba(201, 191, 141, 0.7)',
-                borderRadius: '72px',
-                '&:hover': {
-                  backgroundColor: 'rgb(187, 178, 130)',
-                },
+              gutterBottom 
+              align="center" 
+              sx={{
+                color: 'rgb(201, 197, 179)',
+                mb: 4,
               }}
             >
-              View My Projects
-            </Button>
+              I am a UX UI designer
+            </Typography>
+            <Box sx={{ mt: 4, textAlign: 'center' }}>
+              <Button
+                variant="contained"
+                size="large"
+                component={RouterLink}
+                to="/projects"
+                sx={{ 
+                  backgroundColor: 'rgb(184, 172, 115)',
+                  borderRadius: '72px',
+                  color: 'rgb(28, 27, 26)',
+                  fontWeight: 'bold',
+                  '&:hover': {
+                    backgroundColor: 'rgb(157, 149, 106)',
+                  },
+                }}
+              >
+                View My Projects
+              </Button>
+            </Box>
           </motion.div>
         </Box>
       </Container>

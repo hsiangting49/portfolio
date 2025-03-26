@@ -18,7 +18,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 這裡可以加入表單提交的邏輯
+    // Add form submission logic here
     console.log('Form submitted:', formData);
   };
 
@@ -30,14 +30,23 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Typography variant="h3" component="h1" gutterBottom align="center">
-            聯絡我
+          <Typography 
+            variant="h3" 
+            component="h1" 
+            gutterBottom 
+            align="center"
+            sx={{
+              color: 'rgb(249, 234, 218)',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+            }}
+          >
+            Contact Me
           </Typography>
           <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
             <form onSubmit={handleSubmit}>
               <TextField
                 fullWidth
-                label="姓名"
+                label="Name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -46,7 +55,7 @@ const Contact = () => {
               />
               <TextField
                 fullWidth
-                label="電子郵件"
+                label="Email"
                 name="email"
                 type="email"
                 value={formData.email}
@@ -56,7 +65,7 @@ const Contact = () => {
               />
               <TextField
                 fullWidth
-                label="訊息"
+                label="Message"
                 name="message"
                 multiline
                 rows={4}
@@ -69,9 +78,16 @@ const Contact = () => {
                 type="submit"
                 variant="contained"
                 size="large"
-                sx={{ mt: 3 }}
+                sx={{ 
+                  mt: 3,
+                  backgroundColor: 'rgb(184, 172, 115)',
+                  color: 'rgb(28, 27, 26)',
+                  '&:hover': {
+                    backgroundColor: 'rgb(157, 149, 106)',
+                  },
+                }}
               >
-                送出訊息
+                Send Message
               </Button>
             </form>
           </Paper>
