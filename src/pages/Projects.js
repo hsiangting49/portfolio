@@ -1,27 +1,38 @@
 import React from 'react';
 import { Container, Typography, Box, Grid, Card, CardContent, CardMedia, CardActions, Button } from '@mui/material';
 import { motion } from 'framer-motion';
+import vrCover from '../assets/images/project/coverVR.jpg';
+import arCover from '../assets/images/project/coverAR.jpg';
+import cookingCover from '../assets/images/project/coverCookingMaster.jpg';
+import eldersCover from '../assets/images/project/coverElders.png';
 
 const projects = [
   {
-    title: 'ElderConnect',
+    title: 'EldersConnect',
     description: 'A Conversational AI Chatbot for Mental Health Tracking and Enhancing Quality of Life for Older Adults',
-    image: 'https://source.unsplash.com/random/800x600?website',
+    image: eldersCover,
     link: '#',
-    technologies: ['UX Research', 'UI Design', 'User Testing','Figma'],
+    technologies: ['UX Research', 'UI Design', 'Competitors Analysis', 'User Testing','Figma'],
+  },
+  {
+    title: 'StoryScape',
+    description: 'AR interactive postcard to bring your memories to life',
+    image: arCover,
+    link: 'https://docs.google.com/presentation/d/1fv9b7uz3GU1jjHLOED1ojJyBhpgbehgIHtBkzg-6t-Q/edit?usp=sharing',
+    technologies: ['Zapworks', 'Adobe Animate','Storyboard Design', 'UI Design', 'User Testing','Figma'],
   },
   {
     title: 'Cooking Master',
     description: 'An innovative cooking app that simplifies meal planning and cooking for busy individuals',
-    image: 'https://source.unsplash.com/random/800x600?coding',
-    link: '#',
-    technologies: ['Competitors Analysis', 'Personas', 'Prototyping','Figma'],
+    image: cookingCover,
+    link: 'https://portfolio1hsiang.my.canva.site/cooking-master',
+    technologies: ['UX Research', 'UI Design','Competitors Analysis', 'Personas', 'Prototyping','Figma'],
   },
   {
     title: 'VRventhub',
     description: 'VR event ticketing platform that allows content creators and attendees to connect and explore immersive experiences',
-    image: 'https://source.unsplash.com/random/800x600?programming',
-    link: '#',
+    image: vrCover,
+    link: 'https://portfolio1hsiang.my.canva.site/vrventhub',
     technologies: ['Storyboard', 'UI Design', 'User Testing','Figma'],
   },
 ];
@@ -42,14 +53,15 @@ const Projects = () => {
             align="center"
             sx={{
               color: 'rgb(249, 234, 218)',
+              fontWeight: 'bold',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
             }}
           >
             My Projects
           </Typography>
-          <Grid container spacing={4} sx={{ mt: 4 }}>
+          <Grid container spacing={6} sx={{ mt: 4, justifyContent: 'center' }}>
             {projects.map((project, index) => (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} md={6} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Card 
                   sx={{ 
                     height: '100%',
@@ -59,11 +71,13 @@ const Projects = () => {
                     '&:hover': {
                       transform: 'translateY(-5px)',
                     },
+                    maxWidth: '400px',
+                    width: '100%',
                   }}
                 >
                   <CardMedia
                     component="img"
-                    height="200"
+                    height="300"
                     image={project.image}
                     alt={project.title}
                     sx={{
@@ -73,7 +87,7 @@ const Projects = () => {
                       backgroundColor: 'rgba(0, 0, 0, 0.05)',
                     }}
                   />
-                  <CardContent sx={{ flexGrow: 1 }}>
+                  <CardContent sx={{ flexGrow: 1, py: 3 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                       {project.title}
                     </Typography>
@@ -107,10 +121,10 @@ const Projects = () => {
                       variant="contained"
                       href={project.link}
                       sx={{ 
-                        backgroundColor: 'rgb(184, 172, 115)',
+                        backgroundColor: 'rgba(152, 152, 152, 0.22)',
                         color: 'rgb(28, 27, 26)',
                         '&:hover': {
-                          backgroundColor: 'rgb(157, 149, 106)',
+                          backgroundColor: 'rgba(152, 152, 152, 0.54)',
                         },
                       }}
                     >

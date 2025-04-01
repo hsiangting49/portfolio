@@ -69,7 +69,7 @@ const Home = () => {
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
               }}
             >
-              Welcome to my website
+              Hello, This is Hsiang-Ting (Alicia)
             </Typography>
             <Typography 
               variant="h5" 
@@ -80,7 +80,7 @@ const Home = () => {
                 mb: 4,
               }}
             >
-              I am a UX UI designer
+              I am a UX UI designer but also a challenge taker who thrives on exploring new possibilities at the intersection of creativity and user psychology. My adaptability has cultivated me into a generalist with hands-on experience in UX/UI design across diverse fields.
             </Typography>
             <Box sx={{ mt: 4, textAlign: 'center' }}>
               <Button
