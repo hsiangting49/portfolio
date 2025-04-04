@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Typography, Box, Button, Grid, Card, CardContent, CardMedia, CardActions, IconButton } from '@mui/material';
 import { motion } from 'framer-motion';
 import FloatingBackground from '../components/FloatingBackground';
@@ -35,7 +36,7 @@ const projects = [
     title: 'EldersConnect',
     description: 'A Conversational AI Chatbot for Mental Health Tracking and Enhancing Quality of Life for Older Adults',
     image: eldersCover,
-    link: '#',
+    link: './elders-connect',
     technologies: ['UX Research', 'UI Design', 'Competitors Analysis', 'User Testing','Figma'],
   },
   {
@@ -81,22 +82,23 @@ const Home = () => {
   };
 
   return (
-    <Box sx={{ pt: 8 }}>
+    <Box sx={{ pt: 4 }}>
       <style>{keyframes}</style>
       {/* Home Section */}
       <Box id="home" sx={{ 
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        background: 'rgb(196, 177, 157) ',
+        //background: 'rgb(39, 37, 34) ',
         position: 'relative',
       }}>
         <Container maxWidth="md" sx={{ 
           flex: 1, 
           display: 'flex', 
           alignItems: 'center',
-          py: 2,
-          height: '80vh'
+          py: 0,
+          height: '80vh',
+          background: 'rgb(39, 37, 34) ',
         }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -138,7 +140,7 @@ const Home = () => {
                 textShadow: '2px 2px 4px rgba(77, 66, 54, 0.5)',
               }}
             >
-              Hsiang-Ting Lin (Alicia)
+              Hsiang-Ting Lin 
             </Typography>
             <Typography 
               variant="h5" 
@@ -330,7 +332,7 @@ const Home = () => {
                       <Button 
                         size="small" 
                         variant="contained"
-                        href={project.link}
+                      
                         sx={{ 
                           backgroundColor: 'rgba(152, 152, 152, 0.22)',
                           color: 'rgb(28, 27, 26)',
@@ -339,7 +341,16 @@ const Home = () => {
                           },
                         }}
                       >
-                        {project.title === 'EldersConnect' ? 'Coming Soon' : 'Learn More'}
+                        {/*project.title === 'EldersConnect' ? 'Coming Soon' : 'Learn More'*/}
+                        {/* Check if the link is internal or external */}
+                        {project.link.startsWith('https') ? (
+                          <a href={project.link} target="_blank" rel="noopener noreferrer">learn more</a>
+                        ) : (
+                          // Internal Link: Use React Router's Link component for internal links
+                          <Link to={project.link}>
+                            Learn more
+                          </Link>
+                        )}
                       </Button>
                     </CardActions>
                   </Card>

@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import CaseStudyPage from './pages/CaseStudyPage';
 import Box from '@mui/material/Box';
 
 const theme = createTheme({
@@ -55,6 +56,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/:id" element={<CaseStudyPage />} />
           </Routes>
         </Box>
       </Router>
